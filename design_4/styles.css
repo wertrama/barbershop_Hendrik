@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #111214;
   --bg2: #1c1d20;
   --surface: #202226;
@@ -208,6 +208,8 @@ a { color: inherit; text-decoration: none; }
 
 .hero-logo__main {
   margin: 8px 0 2px;
+  display: inline-block;
+  padding: 0 0.05em;
   font-family: var(--font-logo);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -747,8 +749,8 @@ a { color: inherit; text-decoration: none; }
   }
 
   .hero-logo__main {
-    font-size: clamp(46px, 15vw, 88px);
-    letter-spacing: 0.03em;
+    font-size: clamp(40px, 13.2vw, 70px);
+    letter-spacing: 0.02em;
   }
 
   .hero-logo__top {
@@ -780,3 +782,4 @@ a { color: inherit; text-decoration: none; }
     padding: 14px 16px;
   }
 }
+

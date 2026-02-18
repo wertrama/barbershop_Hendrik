@@ -24,6 +24,25 @@
 
   document.querySelectorAll("[data-gallery-track]").forEach((track) => {
     track.setAttribute("aria-label", "Horizontale fotogalerij");
+
+    // While hovering the gallery, use mouse wheel to scroll horizontally.
+    track.addEventListener("wheel", (event) => {
+      const mostlyVertical = Math.abs(event.deltaY) > Math.abs(event.deltaX);
+      if (!mostlyVertical) return;
+
+      const hasHorizontalOverflow = track.scrollWidth > track.clientWidth + 1;
+      if (!hasHorizontalOverflow) return;
+
+      const goingRight = event.deltaY > 0;
+      const atStart = track.scrollLeft <= 0;
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+
+      // Keep normal page scroll when the gallery can't move further.
+      if ((goingRight && atEnd) || (!goingRight && atStart)) return;
+
+      event.preventDefault();
+      track.scrollLeft += event.deltaY;
+    }, { passive: false });
   });
 
   const header = document.querySelector(".header");
@@ -42,3 +61,5 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 })();
+
+
