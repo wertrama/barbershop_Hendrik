@@ -16,8 +16,8 @@
   --radius2: 26px;
 
   --font-logo: "Cinzel", Georgia, serif;
-  --font-head: "Bebas Neue", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-head: "Barlow", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-body: "Barlow", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -77,10 +77,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 .brand__name {
-  font-family: var(--font-logo);
+  font-family: var(--font-head);
+  font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 22px;
   background: linear-gradient(180deg, #f13a31, #87120d 78%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -197,82 +198,113 @@ a { color: inherit; text-decoration: none; }
 
 .hero-logo {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 980px;
+  animation: hero-fade-in 700ms ease-out both;
 }
 
 .hero-logo__top {
-  margin: 0;
+  margin: 0 0 14px;
+  color: rgba(26, 26, 26, 0.7);
   font-family: var(--font-head);
-  color: #121212;
-  letter-spacing: 0.12em;
-  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: clamp(11px, 1.2vw, 16px);
 }
 
 .hero-logo__main {
-  margin: 8px 0 2px;
+  margin: 0;
   display: inline-block;
   padding: 0 0.05em;
   font-family: var(--font-logo);
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: clamp(48px, 9.2vw, 128px);
-  line-height: 0.95;
+  font-size: clamp(58px, 11.2vw, 148px);
+  line-height: 0.92;
   white-space: nowrap;
-  background: linear-gradient(180deg, #f0352d 0%, #99130f 75%);
+  background: linear-gradient(90deg, #620904 0%, #f22b12 50%, #630804 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .hero-logo__bottom {
-  margin: 0;
-  color: #1f1f1f;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  font-size: clamp(14px, 1.8vw, 30px);
+  margin: 12px 0 0;
+  color: rgba(27, 27, 27, 0.74);
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: clamp(11px, 1.1vw, 16px);
 }
 
 .hero-slogan {
-  margin: 22px 0 0;
-  color: #111111;
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  font-size: clamp(28px, 5.2vw, 78px);
+  margin: 8px 0 0;
+  color: rgba(24, 24, 24, 0.74);
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  font-size: clamp(13px, 2vw, 22px);
   text-transform: uppercase;
 }
 
 .hero-slogan__tag {
-  display: block;
-  margin-top: 2px;
-  color: var(--red-dark);
-  letter-spacing: 0.08em;
-  font-size: clamp(22px, 4vw, 62px);
-}
-
-.hero__lead {
-  margin: 18px auto 0;
-  max-width: 56ch;
-  color: rgba(18, 18, 18, 0.85);
-  font-size: 16px;
-  line-height: 1.72;
+  margin: 0;
+  color: rgba(30, 30, 30, 0.62);
+  font-family: var(--font-head);
   font-weight: 600;
+  letter-spacing: 0.24em;
+  font-size: clamp(11px, 1.3vw, 15px);
+  text-transform: uppercase;
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 22px;
+  margin-top: 26px;
   justify-content: center;
+  animation: hero-fade-in 700ms ease-out both;
+  animation-delay: 120ms;
 }
 
-.hero__meta {
-  margin-top: 18px;
-  color: rgba(19, 19, 19, 0.86);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 13px;
+.hero-separator {
+  margin: 26px auto 0;
+  width: min(620px, 92%);
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  animation: hero-fade-in 700ms ease-out both;
+  animation-delay: 240ms;
+}
+
+.hero-separator::before,
+.hero-separator::after {
+  content: "";
+  width: min(520px, 100%);
+  height: 1px;
+  background: rgba(25, 25, 25, 0.28);
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo,
+  .hero__actions,
+  .hero-separator {
+    animation: none;
+  }
 }
 
 .btn {
@@ -329,6 +361,7 @@ a { color: inherit; text-decoration: none; }
 
 .section__title {
   font-family: var(--font-head);
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: clamp(34px, 4.2vw, 54px);
@@ -368,6 +401,7 @@ a { color: inherit; text-decoration: none; }
 
 .card__title {
   font-family: var(--font-head);
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 22px;
@@ -579,6 +613,7 @@ a { color: inherit; text-decoration: none; }
 
 .booking__title {
   font-family: var(--font-head);
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin: 0 0 10px;
@@ -639,6 +674,7 @@ a { color: inherit; text-decoration: none; }
 .whatsapp-panel__title {
   margin: 0;
   font-family: var(--font-head);
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 24px;
@@ -664,7 +700,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .footer__brand {
-  font-family: var(--font-logo);
+  font-family: var(--font-head);
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 28px;
@@ -673,6 +710,7 @@ a { color: inherit; text-decoration: none; }
 
 .footer__title {
   font-family: var(--font-head);
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -732,17 +770,39 @@ a { color: inherit; text-decoration: none; }
   }
 
   .hero-logo__main {
-    font-size: clamp(40px, 13.2vw, 70px);
-    letter-spacing: 0.02em;
+    font-size: clamp(44px, 15vw, 86px);
+    letter-spacing: 0.07em;
+  }
+
+  .hero__actions .btn {
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 16px;
   }
 
   .hero-logo__top {
-    font-size: clamp(22px, 8vw, 36px);
+    letter-spacing: 0.2em;
+    font-size: clamp(10px, 2.6vw, 13px);
   }
 
   .hero-logo__bottom {
-    letter-spacing: 0.08em;
-    font-size: clamp(12px, 3.6vw, 16px);
+    letter-spacing: 0.14em;
+    font-size: clamp(10px, 3vw, 13px);
+  }
+
+  .hero-slogan {
+    font-size: clamp(12px, 4vw, 18px);
+    letter-spacing: 0.16em;
+  }
+
+  .hero-slogan__tag {
+    font-size: clamp(10px, 3.2vw, 13px);
+    letter-spacing: 0.2em;
+  }
+
+  .hero-separator {
+    margin-top: 22px;
+    width: 100%;
   }
 
   .combo-price {
@@ -764,5 +824,40 @@ a { color: inherit; text-decoration: none; }
     justify-content: center;
     padding: 14px 16px;
     font-size: 19px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-logo {
+    max-width: 100%;
+  }
+
+  .hero-logo__main {
+    font-size: clamp(31px, 12.2vw, 52px);
+    letter-spacing: 0.03em;
+    padding: 0;
+  }
+
+  .hero-logo__top {
+    margin-bottom: 10px;
+    letter-spacing: 0.14em;
+    font-size: clamp(9px, 2.9vw, 11px);
+  }
+
+  .hero-logo__bottom {
+    margin-top: 10px;
+    letter-spacing: 0.1em;
+    font-size: clamp(9px, 2.8vw, 11px);
+  }
+
+  .hero__actions {
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .hero__actions .btn {
+    padding: 9px 12px;
+    border-radius: 12px;
+    font-size: 15px;
   }
 }
