@@ -1,0 +1,18 @@
+RewriteEngine On
+
+Redirect 301 /HOME /
+Redirect 301 /home /
+Redirect 301 /INFO /
+Redirect 301 /info /
+Redirect 301 /CONTACT /
+Redirect 301 /contact /
+Redirect 301 /FOTOS /
+Redirect 301 /fotos /
+Redirect 301 /TRAININGEN /
+Redirect 301 /trainingen /
+Redirect 301 /BEHANDELINGEN /
+Redirect 301 /behandelingen /
+Redirect 301 /AFSPRAAK-MAKEN /
+Redirect 301 /afspraak-maken /
+Redirect 301 /PRODUCTEN /
+Redirect 301 /producten /
